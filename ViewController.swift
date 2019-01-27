@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print(error.localizedDescription)
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                var resultDictionary = dataDictionary["results"] as! [[String:Any]]
+                let resultDictionary = dataDictionary["results"] as! [[String:Any]]
                 self.results = resultDictionary
                 
                 // TODO: Get the array of movies
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        
+        print()
         let movie = results[indexPath.row]
         let title = movie["title"] as! String
         let synopsis = movie["overview"] as! String
@@ -85,10 +85,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let movie = results[index]
         movieViewController.movieTitle = movie["title"] as! String
         movieViewController.movieSummary = movie["overview"] as! String
-        
+        movieViewController.movieDate = movie["release_date"] as! String
+        print(movie)
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
-        movieViewController.moviePath = baseUrl + posterPath as! String
+        let backdropPath = movie["backdrop_path"] as! String
+        movieViewController.moviePathForSmallPhoto = baseUrl + posterPath
+        movieViewController.moviePathForPhoto = baseUrl + backdropPath
         
         
         

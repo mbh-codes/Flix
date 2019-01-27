@@ -149,7 +149,7 @@
 				C565BE9121EE941F00E56BCA /* LaunchScreen.storyboard */,
 				C565BE9421EE941F00E56BCA /* Info.plist */,
 			);
-			path = Flix;
+			name = Flix;
 			sourceTree = "<group>";
 		};
 		C565BE9C21EE941F00E56BCA /* FlixTests */ = {
@@ -588,7 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZN6BLT893;
-				INFOPLIST_FILE = Flix/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZN6BLT893;
-				INFOPLIST_FILE = Flix/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
