@@ -46,7 +46,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.movieTableView.reloadData()
             }
         }
-        movieTableView.reloadData()
         task.resume()
         
     }
