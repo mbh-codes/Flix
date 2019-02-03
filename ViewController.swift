@@ -17,7 +17,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let movieSegueIdentifier = "ShowMovieSegue"
     
-   
     
     
     override func viewDidLoad() {
@@ -27,6 +26,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         movieTableView.dataSource = self
         movieTableView.delegate = self
         //movieTableView.reloadData()
+        
+        
+        movieTableView.estimatedRowHeight = 100
+        movieTableView.rowHeight = UITableView.automaticDimension
+        
+        
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -61,12 +66,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let title = movie["title"] as! String
         let synopsis = movie["overview"] as! String
         
+        cell.MovieSummary.numberOfLines = 0
         cell.MovieLabel.text = title
         cell.MovieSummary.text = synopsis
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl + posterPath)
         cell.MovieImage.af_setImage(withURL: posterUrl!)
+        
+        //To allows more space in the summary and push the cell size
         
         return cell
     }

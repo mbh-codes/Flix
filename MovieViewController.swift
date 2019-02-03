@@ -15,7 +15,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var MovieDate: UILabel!
     @IBOutlet weak var MovieSmallPhoto: UIImageView!
     @IBOutlet weak var MovieTitle: UILabel!
-    @IBOutlet weak var MovieSummary: UITextView!
+    @IBOutlet weak var MovieSummary: UILabel!
     
     var movieTitle = String()
     var movieSummary = String()
